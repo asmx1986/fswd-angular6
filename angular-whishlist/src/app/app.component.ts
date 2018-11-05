@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-whishlist';
+
+  destinoAgregado(d) {
+  	//alert(d.nombre);
+  }
 }
