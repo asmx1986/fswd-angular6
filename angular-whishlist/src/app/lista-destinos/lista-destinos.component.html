@@ -29,8 +29,9 @@
 
     <div class="row row-flex">
         <app-destino-viaje
-            *ngFor="let d of destinos"
+            *ngFor="let d of destinos; let i=index"
             [destino]="d"
+            [idx]="i"
             (onClicked)='elegido(d)'
             >
         </app-destino-viaje>
