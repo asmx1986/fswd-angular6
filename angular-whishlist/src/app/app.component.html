@@ -1,3 +1,12 @@
+<div class="page-header">
+	<div class="container">
+		<h1>Routing Simple</h1>
+		<div class="navLinks">
+			<a [routerLink]="['/home']">Home</a>
+		</div>
+	</div>
+</div>
+
 <div class="container content">
   <div class="row">
     <h1>
@@ -5,5 +14,5 @@
     </h1>
   </div>
 
-  <app-lista-destinos (onItemAdded)='destinoAgregado($event)'></app-lista-destinos>
+  <router-outlet></router-outlet>
 </div>
