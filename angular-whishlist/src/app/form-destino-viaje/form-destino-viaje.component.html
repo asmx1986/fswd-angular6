@@ -9,6 +9,14 @@
     <input type="text" class="form-control"
     		id="nombre" placeholder="Ingresar nombre..."
     		[formControl]="fg.controls['nombre']">
+		<div *ngIf="!fg.controls['nombre'].valid"
+				class="alert alert-danger" role="alert">
+			nombre invalido!
+		</div>
+		<div *ngIf="fg.controls['nombre'].hasError('required')"
+				class="alert alert-danger" role="alert">
+			nombre es obligatorio!
+		</div>
   </div>
   <div class="form-group">
     <label for="Imagen Url">Imagen Url</label>
@@ -16,5 +24,7 @@
     		id="imagenUrl" placeholder="Ingresar url..."
     		[formControl]="fg.controls['url']">
   </div>
-  <button type="submit" class="btn btn-primary">Guardar!</button>
+  <button type="submit" class="btn btn-primary"
+  		 *ngIf="fg.valid"
+  	>Guardar!</button>
 </form>

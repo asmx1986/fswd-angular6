@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { DestinoViaje } from './../models/destino-viaje.model';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-destino-viaje',
@@ -15,7 +15,7 @@ export class FormDestinoViajeComponent implements OnInit {
     this.onItemAdded = new EventEmitter();
 	
 	this.fg = fb.group({
-		nombre: [''],
+		nombre: ['', Validators.required],
 		url: ['']
 	});
 	
