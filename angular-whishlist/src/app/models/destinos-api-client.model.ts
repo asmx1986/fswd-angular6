@@ -8,7 +8,10 @@ export class DestinosApiClient {
 	add(d:DestinoViaje){
 	  this.destinos.push(d);
 	}
-	getAll(){
+	getAll():DestinoViaje[]{
 	  return this.destinos;
+    }
+	getById(id:String):DestinoViaje{
+	  return this.destinos.filter(function(d){return d.id.toString() == id;})[0];
     }
 }

@@ -11,7 +11,7 @@ import { DestinosApiClient } from './models/destinos-api-client.model';
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: ListaDestinosComponent },
-    { path: 'destino', component: DestinoDetalleComponent }
+    { path: 'destino/:id', component: DestinoDetalleComponent }
   ];
 
 @NgModule({
