@@ -1,0 +1,20 @@
+<form
+		[formGroup]="fg"
+		(ngSubmit)="guardar(
+								fg.controls['nombre'].value,
+								fg.controls['url'].value
+					)">
+  <div class="form-group">
+    <label for="nombre">Nombre</label>
+    <input type="text" class="form-control"
+    		id="nombre" placeholder="Ingresar nombre..."
+    		[formControl]="fg.controls['nombre']">
+  </div>
+  <div class="form-group">
+    <label for="Imagen Url">Imagen Url</label>
+    <input type="text" class="form-control"
+    		id="imagenUrl" placeholder="Ingresar url..."
+    		[formControl]="fg.controls['url']">
+  </div>
+  <button type="submit" class="btn btn-primary">Guardar!</button>
+</form>

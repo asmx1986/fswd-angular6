@@ -17,11 +17,9 @@ export class ListaDestinosComponent implements OnInit {
   ngOnInit() {
   }
 
-  guardar(nombre:string, url:string):boolean {
-  	let d = new DestinoViaje(nombre, url);
+  agregado(d:DestinoViaje) {
     this.destinosApiClient.add(d);
     this.onItemAdded.emit(d);
-    return false;
   }
 
   elegido(e:DestinoViaje) {
