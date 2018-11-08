@@ -9,6 +9,9 @@
     <input type="text" class="form-control"
     		id="nombre" placeholder="Ingresar nombre..."
     		[formControl]="fg.controls['nombre']">
+    	<ul>
+    		<li *ngFor="let r of searchResults;">{{r}}</li>
+		</ul>
 		<div *ngIf="fg.controls['nombre'].hasError('required')"
 				class="alert alert-danger" role="alert">
 			nombre es obligatorio!
