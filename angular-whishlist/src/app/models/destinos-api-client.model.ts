@@ -1,28 +1,46 @@
+import {Injectable} from '@angular/core';
 import { DestinoViaje } from './destino-viaje.model';
-import { Subject, BehaviorSubject } from 'rxjs';
+import { tap, last } from 'rxjs/operators';
+import { Action } from '@ngrx/store';
+import { Store } from '@ngrx/store';
+import {
+		DestinosViajesState,
+		NuevoDestinoAction,
+		ElegidoFavoritoAction
+	} from './destinos-viajes-state.model';
+import {AppState} from './../app.module';
 
+@Injectable()
 export class DestinosApiClient {
-	destinos:DestinoViaje[];
-	current: Subject<DestinoViaje> = new BehaviorSubject<DestinoViaje>(null);
+	destinos:DestinoViaje[]=[];
 
-	constructor() {
-       this.destinos = [];
+	constructor(private store: Store<AppState>) {
+		this.store
+			.select(state => state.destinos)
+			.subscribe((data) => {
+				console.log("destinos sub store");
+				console.log(data);
+				this.destinos = data.items;
+			});
+		this.store
+			.subscribe((data) => {
+				console.log("all store");
+				console.log(data);
+			});
 	}
+	
 	add(d:DestinoViaje){
-	  this.destinos.push(d);
+	  //aqui incovariamos al servidor
+	  this.store.dispatch(new NuevoDestinoAction(d));
 	}
-	getAll():DestinoViaje[]{
-	  return this.destinos;
-    }
 	getById(id:String):DestinoViaje{
 	  return this.destinos.filter(function(d){return d.id.toString() == id;})[0];
     }
-    elegir(d:DestinoViaje){
-	    this.destinos.forEach(x => x.setSelected(false));
-	    d.setSelected(true);
-	    this.current.next(d);
+    getAll():DestinoViaje[] {
+    	return this.destinos;
     }
-    subscribeOnChange(fn){
-    	this.current.subscribe(fn);
-	}
+    elegir(d:DestinoViaje){
+	  //aqui incovariamos al servidor
+	  this.store.dispatch(new ElegidoFavoritoAction(d));
+    }
 }
