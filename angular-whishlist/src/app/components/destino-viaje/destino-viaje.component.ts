@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostBinding } from '@angular/core';
-import { DestinoViaje } from './../models/destino-viaje.model';
+import { DestinoViaje } from './../../models/destino-viaje.model';
 import { Store } from '@ngrx/store';
-import { AppState } from '../app.module';
-import { VoteUpAction, VoteDownAction } from '../models/destinos-viajes-state.model';
+import { AppState } from '../../app.module';
+import { VoteUpAction, VoteDownAction } from '../../models/destinos-viajes-state.model';
 
 @Component({
   selector: 'app-destino-viaje',

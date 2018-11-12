@@ -7,22 +7,32 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
-import { DestinoViajeComponent } from './destino-viaje/destino-viaje.component';
-import { ListaDestinosComponent } from './lista-destinos/lista-destinos.component';
-import { DestinoDetalleComponent } from './destino-detalle/destino-detalle.component';
+import { DestinoViajeComponent } from './components/destino-viaje/destino-viaje.component';
+import { ListaDestinosComponent } from './components/lista-destinos/lista-destinos.component';
+import { DestinoDetalleComponent } from './components/destino-detalle/destino-detalle.component';
 import { DestinosApiClient } from './models/destinos-api-client.model';
-import { FormDestinoViajeComponent } from './form-destino-viaje/form-destino-viaje.component';
+import { FormDestinoViajeComponent } from './components/form-destino-viaje/form-destino-viaje.component';
 import {
           DestinosViajesState,
           intializeDestinosViajesState,
           reducerDestinosViajes,
           DestinosViajesEffects
         } from './models/destinos-viajes-state.model';
+import { LoginComponent } from './components/login/login.component';
+import { ProtectedComponent } from './components/protected/protected.component';
+import { UsuarioLogueadoGuard } from './guards/usuario-logueado/usuario-logueado.guard';
+import { AuthService } from './services/auth.service';
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: ListaDestinosComponent },
-    { path: 'destino/:id', component: DestinoDetalleComponent }
+    { path: 'destino/:id', component: DestinoDetalleComponent },
+    { path: 'login', component: LoginComponent },
+    {
+      path: 'protected',
+      component: ProtectedComponent,
+      canActivate: [ UsuarioLogueadoGuard ]
+    }
   ];
 
 // redux init
@@ -45,7 +55,9 @@ const reducersInitialState = {
     DestinoViajeComponent,
     ListaDestinosComponent,
     DestinoDetalleComponent,
-    FormDestinoViajeComponent
+    FormDestinoViajeComponent,
+    LoginComponent,
+    ProtectedComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +69,9 @@ const reducersInitialState = {
     StoreDevtoolsModule.instrument()
   ],
   providers: [
-    DestinosApiClient
+    DestinosApiClient,
+    AuthService,
+    UsuarioLogueadoGuard
   ],
   bootstrap: [AppComponent]
 })
