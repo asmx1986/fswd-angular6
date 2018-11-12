@@ -26,6 +26,7 @@ import { VuelosMainComponent } from './components/vuelos/vuelos-main/vuelos-main
 import { VuelosMasInfoComponent } from './components/vuelos/vuelos-mas-info/vuelos-mas-info.component';
 import { VuelosDetalleComponent } from './components/vuelos/vuelos-detalle/vuelos-detalle.component';
 import { VuelosComponent } from './components/vuelos/vuelos/vuelos.component';
+import { ReservasModule } from './reservas/reservas.module';
 
 export const childrenRoutesVuelos: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -87,7 +88,8 @@ const reducersInitialState = {
     RouterModule.forRoot(routes),
     NgRxStoreModule.forRoot(reducers, { initialState: reducersInitialState }),
     EffectsModule.forRoot([DestinosViajesEffects]),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
+    ReservasModule
   ],
   providers: [
     DestinosApiClient,
