@@ -23,11 +23,11 @@ export class ListaDestinosComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.select(state => state.destinos)
+    this.store.select(state => state.destinos.favorito)
       .subscribe(data => {
-        let d = data.favorito;
-        if (d != null) {
-          this.updates.push("Se eligió: " + d.nombre);
+        const f = data;
+        if (f != null) {
+          this.updates.push('Se eligió: ' + f.nombre);
         }
       });
   }

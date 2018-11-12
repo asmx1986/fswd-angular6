@@ -6,6 +6,13 @@
     <div class="card-desc">
         <h3>{{destino.nombre}}</h3>
         <p>Servicios</p>
+        <div>
+            <a href="#" (click)="voteUp()"><i class="material-icons md-18">thumb_up</i></a>
+            &nbsp;
+            <a href="#" (click)="voteDown()"><i class="material-icons md-18">thumb_down</i></a>
+            &nbsp;
+            Votos: {{destino.votes}}
+        </div>
         <ul>
             <li *ngFor="let s of destino.servicios;">
                 <span class="container" [ngSwitch]="s">

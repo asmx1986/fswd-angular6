@@ -5,7 +5,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { StoreModule as NgRxStoreModule, ActionReducerMap } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment'; // Angular CLI environemnt
 
 import { AppComponent } from './app.component';
 import { DestinoViajeComponent } from './destino-viaje/destino-viaje.component';
@@ -26,7 +25,7 @@ const routes: Routes = [
     { path: 'destino/:id', component: DestinoDetalleComponent }
   ];
 
-//redux init
+// redux init
 export interface AppState {
   destinos: DestinosViajesState;
 };
@@ -35,10 +34,10 @@ const reducers: ActionReducerMap<AppState> = {
   destinos: reducerDestinosViajes
 };
 
-let reducersInitialState = {
+const reducersInitialState = {
     destinos: intializeDestinosViajesState()
 };
-//fin redux init
+// fin redux init
 
 @NgModule({
   declarations: [
