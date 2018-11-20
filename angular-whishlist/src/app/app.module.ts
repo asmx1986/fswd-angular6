@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { DestinoViajeComponent } from './components/destino-viaje/destino-viaje.component';
 import { ListaDestinosComponent } from './components/lista-destinos/lista-destinos.component';
 import { DestinoDetalleComponent } from './components/destino-detalle/destino-detalle.component';
-import { DestinosApiClient } from './models/destinos-api-client.model';
 import { FormDestinoViajeComponent } from './components/form-destino-viaje/form-destino-viaje.component';
 import {
           DestinosViajesState,
@@ -56,7 +55,7 @@ const routes: Routes = [
 // redux init
 export interface AppState {
   destinos: DestinosViajesState;
-};
+}
 
 const reducers: ActionReducerMap<AppState> = {
   destinos: reducerDestinosViajes
@@ -92,7 +91,6 @@ const reducersInitialState = {
     ReservasModule
   ],
   providers: [
-    DestinosApiClient,
     AuthService,
     UsuarioLogueadoGuard
   ],
