@@ -14,5 +14,5 @@ jobs:
           key: angular-whishlist-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - "node_modules"
-      - run: npm run test -- --progress=false --watch=false --browsers=ChromeHeadless
-      - run: npm run e2e -- --no-progress
+      - run: npm run test -- --progress=false --watch=false --browsers=ChromeHeadlessCI
+      - run: npm run e2e -- --progress=false
