@@ -35,6 +35,7 @@ import { HttpClientModule, HttpClient, HttpHeaders, HttpRequest, HttpResponse } 
 import { DestinoViaje } from './models/destino-viaje.model';
 import { Observable, from } from 'rxjs';
 import { map, flatMap } from 'rxjs/operators';
+import { EspiameDirective } from './espiame.directive';
 
 // init routing
 export const childrenRoutesVuelos: Routes = [
@@ -170,7 +171,6 @@ class TranslationLoader implements TranslateLoader {
 function HttpLoaderFactory(http: HttpClient) {
   return new TranslationLoader(http);
 }
-// fin i18n
 
 @NgModule({
   declarations: [
@@ -184,7 +184,8 @@ function HttpLoaderFactory(http: HttpClient) {
     VuelosComponent,
     VuelosMainComponent,
     VuelosMasInfoComponent,
-    VuelosDetalleComponent
+    VuelosDetalleComponent,
+    EspiameDirective
   ],
   imports: [
     BrowserModule,
