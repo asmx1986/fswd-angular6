@@ -23,7 +23,8 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       transition('estadoFavorito => estadoNoFavorito', [
         animate('1s')
       ]),
-    ]
+    ])
+  ]
 })
 export class DestinoViajeComponent implements OnInit {
   @Input() destino: DestinoViaje;
