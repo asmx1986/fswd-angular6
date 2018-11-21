@@ -15,4 +15,3 @@ jobs:
           paths:
             - "node_modules"
       - run: npm run test -- --progress=false --watch=false --browsers=ChromeHeadlessCI --source-map=false
-      - run: npm run e2e
