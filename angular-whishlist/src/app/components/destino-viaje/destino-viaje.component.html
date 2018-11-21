@@ -7,9 +7,13 @@
         <h3>{{destino.nombre}}</h3>
         <p>Servicios</p>
         <div>
-            <a href="#" (click)="voteUp()"><i class="material-icons md-18">thumb_up</i></a>
+            <a href="#" (click)="voteUp()" appTrackearClick data-trackear-tags="destino_vote_up lista_destinos_item">
+                <i class="material-icons md-18">thumb_up</i>
+            </a>
             &nbsp;
-            <a href="#" (click)="voteDown()"><i class="material-icons md-18">thumb_down</i></a>
+            <a href="#" (click)="voteDown()" appTrackearClick data-trackear-tags="destino_vote_down lista_destinos_item">
+                <i class="material-icons md-18">thumb_down</i>
+            </a>
             &nbsp;
             Votos: {{destino.votes}}
         </div>
@@ -21,7 +25,7 @@
                 </span>
             </li>
         </ul>
-        <a href="#" class="btn-card" (click)="ir()">IR!</a>
+        <a href="#" class="btn-card" (click)="ir()" appTrackearClick data-trackear-tags="destino_elegir_preferido lista_destinos_item">IR!</a>
         <span *ngIf="destino.isSelected()">
             <span ngNonBindable>{{ PREFERIDO! }}</span>
         </span>
